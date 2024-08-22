@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<TabPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poov.controledoacaosangue.Controller.TelaPrincipal">
+   <tabs>
+      <Tab id="tabDoador" fx:id="dtDoador" text="Doador">
+         <AnchorPane>
+            <children>
+               <VBox layoutX="20.0" layoutY="20.0" spacing="10.0">
+                  <GridPane hgap="10" vgap="10">
+                     <children>
+                        <Label text="Código:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <TextField id="dtCodigoDoador" fx:id="dtCodigoDoador" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                        <Label text="Nome:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField id="dtNomeDoador" fx:id="dtNomeDoador" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                        <Label text="CPF:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <TextField id="dtCpfDoador" fx:id="dtCpfDoador" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                        <Label text="Contato:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <TextField fx:id="dtContatoDoador" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                     </rowConstraints>
+                  </GridPane>
+
+                  <HBox spacing="10">
+                     <VBox spacing="5">
+                        <Label text="Tipo Sanguíneo:" />
+                        <RadioButton fx:id="tpQualquerRadio" text="Qualquer um">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tipoSanguineoToggleGroup" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="tpARadio" text="A" toggleGroup="$tipoSanguineoToggleGroup" />
+                        <RadioButton fx:id="tpBRadio" text="B" toggleGroup="$tipoSanguineoToggleGroup" />
+                        <RadioButton fx:id="tpABRadio" text="AB" toggleGroup="$tipoSanguineoToggleGroup" />
+                        <RadioButton fx:id="tpORadio" text="O" toggleGroup="$tipoSanguineoToggleGroup" />
+                     </VBox>
+                  </HBox>
+               </VBox>
+               <TableView fx:id="doadoresTableView" layoutY="316.0" prefHeight="204.0" prefWidth="800.0">
+                  <columns>
+                     <TableColumn fx:id="codigoColumn" text="Código" />
+                     <TableColumn fx:id="nomeColumn" text="Nome" />
+                     <TableColumn fx:id="cpfColumn" text="CPF" />
+                     <TableColumn fx:id="contatoColumn" text="Contato" />
+                     <TableColumn fx:id="tipoSanguineoColumn" text="Tipo Sanguíneo" />
+                     <TableColumn fx:id="rhColumn" text="RH" />
+                  </columns>
+               </TableView>
+
+               <Button fx:id="cadastrarDoadorButton" layoutX="387.0" layoutY="49.0" onAction="#cadastrarDoador" text="Cadastrar Doador" />
+               <VBox layoutX="272.0" layoutY="179.0" spacing="5">
+                  <Label text="RH:" />
+                  <RadioButton fx:id="rhQualquerRadio" text="Qualquer um">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="rhToggleGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="rhPositivoRadio" text="Positivo" toggleGroup="$rhToggleGroup" />
+                  <RadioButton fx:id="rhNegativoRadio" text="Negativo" toggleGroup="$rhToggleGroup" />
+               </VBox>
+
+               <HBox layoutX="167.0" layoutY="290.0" spacing="10">
+                  <Button id="botaoBuscar" fx:id="buscarButton" onAction="#dtBuscarPress" text="Buscar" />
+                  <Button fx:id="limparButton" onAction="#dtLimparPress" text="Limpar" />
+               </HBox>
+               <HBox layoutX="54.0" layoutY="531.0" prefHeight="26.0" prefWidth="708.0" spacing="10" />
+               <Separator layoutX="371.0" layoutY="2.0" orientation="VERTICAL" prefHeight="200.0" />
+               <Button fx:id="cadastrarDoacaoButton" layoutX="387.0" layoutY="129.0" onAction="#cadastrarDoacaoPress" text="Cadastrar Doação" />
+               <Button fx:id="verDoacoesButton" layoutX="521.0" layoutY="129.0" onAction="#verDoacoesPress" text="Ver Doações" />
+               <Button fx:id="alterarDoadorButton" layoutX="521.0" layoutY="49.0" onAction="#alterarDoadorPress" text="Alterar Doador" />
+               <Button fx:id="removerDoadorButton" layoutX="645.0" layoutY="49.0" onAction="#removerDoadorPress" text="Remover Doador" />
+               <Button fx:id="fecharButton" layoutX="387.0" layoutY="190.0" onAction="#fecharPress" text="Fechar Sistema" />
+            </children>
+         </AnchorPane>
+      </Tab>
+      <Tab id="tabDoacao" fx:id="dtDoacao" text="Doação">
+         <AnchorPane prefHeight="618.0" prefWidth="800.0">
+            <children>
+               <HBox layoutX="470" layoutY="270" spacing="10" />
+               <VBox layoutX="20.0" layoutY="20.0" spacing="10.0" />
+               <Text layoutX="191.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo do Doador:" wrappingWidth="107.82342529296875" />
+               <TextField fx:id="dcCodigoDoador" layoutX="303.0" layoutY="7.0" />
+               <Text layoutX="226.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nome:" />
+               <TextField fx:id="dcNomeDoador" layoutX="301.0" layoutY="36.0" />
+               <Text layoutX="233.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CPF:" />
+               <TextField fx:id="dcCpfDoador" layoutX="301.0" layoutY="65.0" />
+               <Text layoutX="222.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contato:" />
+               <TextField fx:id="dcContatoDoador" layoutX="301.0" layoutY="96.0" />
+               <Group layoutX="190.0" layoutY="164.0">
+                  <children>
+                     <VBox layoutX="-70.0" layoutY="-14.0" prefHeight="114.0" prefWidth="154.0">
+                        <children>
+                           <RadioButton fx:id="dcQualquerRadioTipo" mnemonicParsing="false" prefHeight="32.0" prefWidth="99.0" text="Qualquer um" />
+                           <RadioButton fx:id="dcARadio" mnemonicParsing="false" prefHeight="35.0" prefWidth="88.0" text="A" />
+                           <RadioButton fx:id="dcABRadio" mnemonicParsing="false" prefHeight="42.0" prefWidth="88.0" text="AB">
+                              <VBox.margin>
+                                 <Insets right="50.0" />
+                              </VBox.margin>
+                           </RadioButton>
+                           <RadioButton fx:id="dcBRadio" mnemonicParsing="false" prefHeight="37.0" prefWidth="88.0" text="B" />
+                           <RadioButton fx:id="dcORadio" mnemonicParsing="false" prefHeight="31.0" prefWidth="88.0" text="O" />
+                        </children>
+                     </VBox>
+                  </children>
+               </Group>
+               <Text layoutX="123.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo Sanguineo" />
+               <Text layoutX="273.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RH:" />
+               <Text layoutX="143.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Codigo de Doação:" />
+               <TextField fx:id="dcCodigoDoacao" layoutX="256.0" layoutY="278.0" prefHeight="25.0" prefWidth="90.0" />
+               <Text layoutX="156.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Volume Entre:" />
+               <TextField fx:id="dcVolumeInicio" layoutX="255.0" layoutY="306.0" prefHeight="25.0" prefWidth="91.0" />
+               <Text layoutX="356.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="e" />
+               <Text layoutX="164.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data entre:" />
+               <Text layoutX="356.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="e" />
+               <Text layoutX="164.0" layoutY="383.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hora entre:" />
+               <Text layoutX="356.0" layoutY="383.0" strokeType="OUTSIDE" strokeWidth="0.0" text="e" />
+               <TableView fx:id="doacoesTableView" layoutX="10.0" layoutY="392.0" prefHeight="178.0" prefWidth="791.0">
+                 <columns>
+                   <TableColumn fx:id="dcCodigoColumn" prefWidth="75.0" text="Código:" />
+                   <TableColumn fx:id="dcVolumeColumn" prefWidth="75.0" text="Volume:" />
+                     <TableColumn fx:id="dcDataColumn" prefWidth="75.0" text="Data:" />
+                     <TableColumn fx:id="dcHoraColumn" prefWidth="75.0" text="Hora:" />
+                     <TableColumn fx:id="dcNomeDoadorColumn" prefWidth="162.4000244140625" text="Nome do Doador" />
+                     <TableColumn fx:id="dcCpfDoadorColumn" prefWidth="105.60003662109375" text="CPF do doador" />
+                     <TableColumn fx:id="dcContatoDoadorColumn" prefWidth="140.800048828125" text="Contato do Doador" />
+                 </columns>
+               </TableView>
+               <Button fx:id="dcBuscarButton" layoutX="527.0" layoutY="358.0" onAction="#dcBuscarButtonPress" prefHeight="25.0" prefWidth="94.0" text="Buscar" />
+               <Button fx:id="dcLimparButton" layoutX="639.0" layoutY="358.0" onAction="#dcLimparButtonPress" prefHeight="25.0" prefWidth="108.0" text="Limpar" />
+               <Group layoutX="245.0" layoutY="140.0">
+                  <children>
+                     <RadioButton fx:id="dcQualquerRadioRh" mnemonicParsing="false" prefHeight="43.0" prefWidth="131.0" text="Qualquer um" />
+                     <RadioButton fx:id="dcRhPositivo" layoutY="43.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="88.0" text="POSITIVO" />
+                     <RadioButton fx:id="dcRhNegativo" layoutY="76.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="88.0" text="NEGATIVO" />
+                  </children>
+               </Group>
+               <TextField fx:id="dcVolumeFim" layoutX="376.0" layoutY="306.0" prefHeight="25.0" prefWidth="91.0" />
+               <DatePicker fx:id="dcDataIni" layoutX="235.0" layoutY="334.0" prefHeight="25.0" prefWidth="112.0" />
+               <DatePicker fx:id="dcDataFim" layoutX="376.0" layoutY="335.0" prefHeight="25.0" prefWidth="112.0" />
+               <TextField fx:id="dcHoraIni" layoutX="253.0" layoutY="365.0" prefHeight="25.0" prefWidth="91.0" />
+               <TextField fx:id="dcHoraFim" layoutX="376.0" layoutY="366.0" prefHeight="25.0" prefWidth="91.0" />
+            </children>
+         </AnchorPane>
+      </Tab>
+   </tabs>
+</TabPane>

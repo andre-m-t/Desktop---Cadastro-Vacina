@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="253.0" prefWidth="491.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="poov.controledoacaosangue.Controller.TelaVerDoacoes">
+   <children>
+      <Button fx:id="buttonCancelar" layoutX="200.0" layoutY="224.0" mnemonicParsing="false" onAction="#buttonCancelarClicado" prefHeight="25.0" prefWidth="91.0" text="Sair" />
+      <HBox layoutX="349.0" layoutY="24.0" spacing="10" />
+      <TableView fx:id="doacoesTableView" layoutY="44.0" prefHeight="178.0" prefWidth="491.0">
+         <columns>
+            <TableColumn fx:id="dcCodigoColumn" prefWidth="75.0" text="Código:" />
+            <TableColumn fx:id="dcVolumeColumn" prefWidth="129.0" text="Volume:" />
+            <TableColumn fx:id="dcDataColumn" prefWidth="118.0" text="Data:" />
+            <TableColumn fx:id="dcHoraColumn" prefWidth="168.0" text="Hora:" />
+         </columns>
+      </TableView>
+      <Label layoutX="14.0" layoutY="16.0" text="Doador:" />
+      <Label fx:id="labelNome" layoutX="94.0" layoutY="16.0" text="Código:" />
+   </children>
+</AnchorPane>
